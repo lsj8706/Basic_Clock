@@ -9,21 +9,29 @@
 /* Begin PBXBuildFile section */
 		CE1EDEF9286CAE060058EDE4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1EDEF8286CAE060058EDE4 /* AppDelegate.swift */; };
 		CE1EDEFB286CAE060058EDE4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1EDEFA286CAE060058EDE4 /* SceneDelegate.swift */; };
-		CE1EDEFD286CAE060058EDE4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1EDEFC286CAE060058EDE4 /* ViewController.swift */; };
-		CE1EDF00286CAE060058EDE4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE1EDEFE286CAE060058EDE4 /* Main.storyboard */; };
+		CE1EDEFD286CAE060058EDE4 /* MainTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1EDEFC286CAE060058EDE4 /* MainTabController.swift */; };
 		CE1EDF02286CAE070058EDE4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE1EDF01286CAE070058EDE4 /* Assets.xcassets */; };
 		CE1EDF05286CAE070058EDE4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE1EDF03286CAE070058EDE4 /* LaunchScreen.storyboard */; };
+		CE1EDF0F286CB26C0058EDE4 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = CE1EDF0E286CB26C0058EDE4 /* SnapKit */; };
+		CE1EDF14286CB30A0058EDE4 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = CE1EDF13286CB30A0058EDE4 /* Then */; };
+		CE8800D0286CBF3D00A8C1E2 /* WorldTimeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8800CF286CBF3D00A8C1E2 /* WorldTimeController.swift */; };
+		CE8800D2286CBF9C00A8C1E2 /* AlarmController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8800D1286CBF9C00A8C1E2 /* AlarmController.swift */; };
+		CE8800D4286CBFBD00A8C1E2 /* StopwatchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8800D3286CBFBD00A8C1E2 /* StopwatchController.swift */; };
+		CE8800D6286CBFD000A8C1E2 /* TimerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8800D5286CBFD000A8C1E2 /* TimerController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		CE1EDEF5286CAE060058EDE4 /* Basic_Clock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Basic_Clock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE1EDEF8286CAE060058EDE4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE1EDEFA286CAE060058EDE4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		CE1EDEFC286CAE060058EDE4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		CE1EDEFF286CAE060058EDE4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		CE1EDEFC286CAE060058EDE4 /* MainTabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabController.swift; sourceTree = "<group>"; };
 		CE1EDF01286CAE070058EDE4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE1EDF04286CAE070058EDE4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE1EDF06286CAE070058EDE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CE8800CF286CBF3D00A8C1E2 /* WorldTimeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldTimeController.swift; sourceTree = "<group>"; };
+		CE8800D1286CBF9C00A8C1E2 /* AlarmController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmController.swift; sourceTree = "<group>"; };
+		CE8800D3286CBFBD00A8C1E2 /* StopwatchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopwatchController.swift; sourceTree = "<group>"; };
+		CE8800D5286CBFD000A8C1E2 /* TimerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +39,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE1EDF0F286CB26C0058EDE4 /* SnapKit in Frameworks */,
+				CE1EDF14286CB30A0058EDE4 /* Then in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +52,7 @@
 			children = (
 				CE1EDEF7286CAE060058EDE4 /* Basic_Clock */,
 				CE1EDEF6286CAE060058EDE4 /* Products */,
+				CE1EDF0C286CB1E90058EDE4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +67,65 @@
 		CE1EDEF7286CAE060058EDE4 /* Basic_Clock */ = {
 			isa = PBXGroup;
 			children = (
+				CE1EDF15286CB35E0058EDE4 /* Screens */,
 				CE1EDEF8286CAE060058EDE4 /* AppDelegate.swift */,
 				CE1EDEFA286CAE060058EDE4 /* SceneDelegate.swift */,
-				CE1EDEFC286CAE060058EDE4 /* ViewController.swift */,
-				CE1EDEFE286CAE060058EDE4 /* Main.storyboard */,
 				CE1EDF01286CAE070058EDE4 /* Assets.xcassets */,
 				CE1EDF03286CAE070058EDE4 /* LaunchScreen.storyboard */,
 				CE1EDF06286CAE070058EDE4 /* Info.plist */,
 			);
 			path = Basic_Clock;
+			sourceTree = "<group>";
+		};
+		CE1EDF0C286CB1E90058EDE4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CE1EDF15286CB35E0058EDE4 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				CE1EDF16286CB39A0058EDE4 /* WorldTime */,
+				CE1EDF17286CB3A10058EDE4 /* Alarm */,
+				CE1EDF18286CB3B50058EDE4 /* Stopwatch */,
+				CE1EDF19286CB3C80058EDE4 /* Timer */,
+				CE1EDEFC286CAE060058EDE4 /* MainTabController.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		CE1EDF16286CB39A0058EDE4 /* WorldTime */ = {
+			isa = PBXGroup;
+			children = (
+				CE8800CF286CBF3D00A8C1E2 /* WorldTimeController.swift */,
+			);
+			path = WorldTime;
+			sourceTree = "<group>";
+		};
+		CE1EDF17286CB3A10058EDE4 /* Alarm */ = {
+			isa = PBXGroup;
+			children = (
+				CE8800D1286CBF9C00A8C1E2 /* AlarmController.swift */,
+			);
+			path = Alarm;
+			sourceTree = "<group>";
+		};
+		CE1EDF18286CB3B50058EDE4 /* Stopwatch */ = {
+			isa = PBXGroup;
+			children = (
+				CE8800D3286CBFBD00A8C1E2 /* StopwatchController.swift */,
+			);
+			path = Stopwatch;
+			sourceTree = "<group>";
+		};
+		CE1EDF19286CB3C80058EDE4 /* Timer */ = {
+			isa = PBXGroup;
+			children = (
+				CE8800D5286CBFD000A8C1E2 /* TimerController.swift */,
+			);
+			path = Timer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +144,10 @@
 			dependencies = (
 			);
 			name = Basic_Clock;
+			packageProductDependencies = (
+				CE1EDF0E286CB26C0058EDE4 /* SnapKit */,
+				CE1EDF13286CB30A0058EDE4 /* Then */,
+			);
 			productName = Basic_Clock;
 			productReference = CE1EDEF5286CAE060058EDE4 /* Basic_Clock.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +176,10 @@
 				Base,
 			);
 			mainGroup = CE1EDEEC286CAE060058EDE4;
+			packageReferences = (
+				CE1EDF0D286CB26C0058EDE4 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				CE1EDF12286CB30A0058EDE4 /* XCRemoteSwiftPackageReference "Then" */,
+			);
 			productRefGroup = CE1EDEF6286CAE060058EDE4 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -127,7 +196,6 @@
 			files = (
 				CE1EDF05286CAE070058EDE4 /* LaunchScreen.storyboard in Resources */,
 				CE1EDF02286CAE070058EDE4 /* Assets.xcassets in Resources */,
-				CE1EDF00286CAE060058EDE4 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,23 +206,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE1EDEFD286CAE060058EDE4 /* ViewController.swift in Sources */,
+				CE1EDEFD286CAE060058EDE4 /* MainTabController.swift in Sources */,
+				CE8800D2286CBF9C00A8C1E2 /* AlarmController.swift in Sources */,
 				CE1EDEF9286CAE060058EDE4 /* AppDelegate.swift in Sources */,
+				CE8800D0286CBF3D00A8C1E2 /* WorldTimeController.swift in Sources */,
+				CE8800D6286CBFD000A8C1E2 /* TimerController.swift in Sources */,
 				CE1EDEFB286CAE060058EDE4 /* SceneDelegate.swift in Sources */,
+				CE8800D4286CBFBD00A8C1E2 /* StopwatchController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		CE1EDEFE286CAE060058EDE4 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CE1EDEFF286CAE060058EDE4 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		CE1EDF03286CAE070058EDE4 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -292,7 +356,6 @@
 				INFOPLIST_FILE = Basic_Clock/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -320,7 +383,6 @@
 				INFOPLIST_FILE = Basic_Clock/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -358,6 +420,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		CE1EDF0D286CB26C0058EDE4 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		CE1EDF12286CB30A0058EDE4 /* XCRemoteSwiftPackageReference "Then" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/devxoul/Then";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		CE1EDF0E286CB26C0058EDE4 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CE1EDF0D286CB26C0058EDE4 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		CE1EDF13286CB30A0058EDE4 /* Then */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CE1EDF12286CB30A0058EDE4 /* XCRemoteSwiftPackageReference "Then" */;
+			productName = Then;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = CE1EDEED286CAE060058EDE4 /* Project object */;
 }
