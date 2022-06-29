@@ -18,6 +18,9 @@
 		CE8800D2286CBF9C00A8C1E2 /* AlarmController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8800D1286CBF9C00A8C1E2 /* AlarmController.swift */; };
 		CE8800D4286CBFBD00A8C1E2 /* StopwatchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8800D3286CBFBD00A8C1E2 /* StopwatchController.swift */; };
 		CE8800D6286CBFD000A8C1E2 /* TimerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8800D5286CBFD000A8C1E2 /* TimerController.swift */; };
+		CE8800D9286CC74400A8C1E2 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8800D8286CC74400A8C1E2 /* HeaderView.swift */; };
+		CE8800DC286CDA2F00A8C1E2 /* SleepAlarmCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8800DB286CDA2F00A8C1E2 /* SleepAlarmCollectionViewCell.swift */; };
+		CE8800DE286CDCCE00A8C1E2 /* AlarmCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8800DD286CDCCE00A8C1E2 /* AlarmCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +35,9 @@
 		CE8800D1286CBF9C00A8C1E2 /* AlarmController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmController.swift; sourceTree = "<group>"; };
 		CE8800D3286CBFBD00A8C1E2 /* StopwatchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopwatchController.swift; sourceTree = "<group>"; };
 		CE8800D5286CBFD000A8C1E2 /* TimerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerController.swift; sourceTree = "<group>"; };
+		CE8800D8286CC74400A8C1E2 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		CE8800DB286CDA2F00A8C1E2 /* SleepAlarmCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepAlarmCollectionViewCell.swift; sourceTree = "<group>"; };
+		CE8800DD286CDCCE00A8C1E2 /* AlarmCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +93,7 @@
 		CE1EDF15286CB35E0058EDE4 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				CE8800D7286CC70B00A8C1E2 /* View */,
 				CE1EDF16286CB39A0058EDE4 /* WorldTime */,
 				CE1EDF17286CB3A10058EDE4 /* Alarm */,
 				CE1EDF18286CB3B50058EDE4 /* Stopwatch */,
@@ -107,6 +114,7 @@
 		CE1EDF17286CB3A10058EDE4 /* Alarm */ = {
 			isa = PBXGroup;
 			children = (
+				CE8800DA286CDA0100A8C1E2 /* Cells */,
 				CE8800D1286CBF9C00A8C1E2 /* AlarmController.swift */,
 			);
 			path = Alarm;
@@ -126,6 +134,23 @@
 				CE8800D5286CBFD000A8C1E2 /* TimerController.swift */,
 			);
 			path = Timer;
+			sourceTree = "<group>";
+		};
+		CE8800D7286CC70B00A8C1E2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CE8800D8286CC74400A8C1E2 /* HeaderView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CE8800DA286CDA0100A8C1E2 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				CE8800DB286CDA2F00A8C1E2 /* SleepAlarmCollectionViewCell.swift */,
+				CE8800DD286CDCCE00A8C1E2 /* AlarmCollectionViewCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -212,7 +237,10 @@
 				CE8800D0286CBF3D00A8C1E2 /* WorldTimeController.swift in Sources */,
 				CE8800D6286CBFD000A8C1E2 /* TimerController.swift in Sources */,
 				CE1EDEFB286CAE060058EDE4 /* SceneDelegate.swift in Sources */,
+				CE8800DE286CDCCE00A8C1E2 /* AlarmCollectionViewCell.swift in Sources */,
+				CE8800DC286CDA2F00A8C1E2 /* SleepAlarmCollectionViewCell.swift in Sources */,
 				CE8800D4286CBFBD00A8C1E2 /* StopwatchController.swift in Sources */,
+				CE8800D9286CC74400A8C1E2 /* HeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

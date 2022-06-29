@@ -15,7 +15,6 @@ class MainTabController: UITabBarController {
         configureTabBar()
     }
     
-    
     func configureTabBar() {
         view.backgroundColor = .black
         
@@ -32,7 +31,6 @@ class MainTabController: UITabBarController {
         tabBar.tintColor = .orange
         tabBar.unselectedItemTintColor = .gray
     }
-
     
     func templateNavigationController(title: String, unselectedImage: UIImage, selectedImage: UIImage, rootViewController: UIViewController) -> UINavigationController {
         let nav = UINavigationController(rootViewController: rootViewController)
@@ -40,6 +38,7 @@ class MainTabController: UITabBarController {
         nav.tabBarItem.image = unselectedImage
         nav.tabBarItem.selectedImage = selectedImage
         nav.navigationBar.tintColor = .black
+        nav.navigationBar.isHidden = true
         return nav
     }
 }
