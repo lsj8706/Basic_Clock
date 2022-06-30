@@ -43,6 +43,10 @@ class AlarmSectionHeaderCollectionReusableView: UICollectionReusableView {
         $0.textColor = .white
     }
     
+    private let cellDivider = UIView().then {
+        $0.backgroundColor = .darkGray
+    }
+    
     //MARK: - Lifecycle
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -64,6 +68,13 @@ class AlarmSectionHeaderCollectionReusableView: UICollectionReusableView {
         sectionNameLabel.snp.makeConstraints { make in
             make.leading.equalTo(sectionIconImageView.snp.trailing).offset(4)
             make.centerY.equalTo(sectionIconImageView)
+        }
+        
+        addSubview(cellDivider)
+        cellDivider.snp.makeConstraints { make in
+            make.top.equalTo(snp.bottom).inset(1)
+            make.leading.trailing.equalToSuperview()
+            make.height.equalTo(1)
         }
     }
     

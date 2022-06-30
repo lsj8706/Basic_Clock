@@ -83,7 +83,11 @@ extension AlarmController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 2
+        if section == 0 {
+            return 1
+        } else {
+            return 2
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -103,7 +107,12 @@ extension AlarmController: UICollectionViewDataSource {
 //MARK: - UICollectionViewDelegateFlowLayout
 extension AlarmController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.width, height: 100)
+        
+        if indexPath.section == 0 {
+            return CGSize(width: collectionView.frame.width, height: 60)
+        } else {
+            return CGSize(width: collectionView.frame.width, height: 100)
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
