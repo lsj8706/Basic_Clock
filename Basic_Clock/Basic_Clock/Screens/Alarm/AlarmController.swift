@@ -15,8 +15,10 @@ class AlarmController: UIViewController {
     private let alarmCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
+        layout.minimumLineSpacing = 1
+        layout.minimumInteritemSpacing = 1
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        cv.backgroundColor = .red
+        cv.backgroundColor = .black
         return cv
     }()
     
@@ -34,7 +36,7 @@ class AlarmController: UIViewController {
         
         self.view.addSubview(alarmCollectionView)
         alarmCollectionView.snp.makeConstraints { make in
-            make.top.equalTo(headerView)
+            make.top.equalTo(headerView.snp.bottom)
             make.leading.trailing.bottom.equalTo(view.safeAreaLayoutGuide)
         }
     }
@@ -48,6 +50,7 @@ class AlarmController: UIViewController {
     private func configureCollectionView() {
         alarmCollectionView.register(SleepAlarmCollectionViewCell.self, forCellWithReuseIdentifier: SleepAlarmCollectionViewCell.identifier)
         alarmCollectionView.register(AlarmCollectionViewCell.self, forCellWithReuseIdentifier: AlarmCollectionViewCell.identifier)
+        alarmCollectionView.register(AlarmSectionHeaderCollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: AlarmSectionHeaderCollectionReusableView.identifier)
     }
 }
 
@@ -60,12 +63,27 @@ extension AlarmController: UICollectionViewDelegate {
 
 //MARK: - UICollectionViewDataSource
 extension AlarmController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        if kind == UICollectionView.elementKindSectionHeader {
+            guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: AlarmSectionHeaderCollectionReusableView.identifier, for: indexPath) as? AlarmSectionHeaderCollectionReusableView else { return UICollectionReusableView() }
+            
+            if indexPath.section == 1 {
+                header.type = .normalAlarm
+            }
+            
+            return header
+        } else {
+            return UICollectionReusableView()
+        }
+    }
+    
+    
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 2
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+        return 2
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -86,5 +104,12 @@ extension AlarmController: UICollectionViewDataSource {
 extension AlarmController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.frame.width, height: 100)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        if section == 0 {
+            return CGSize(width: view.frame.width, height: 100)
+        }
+        return CGSize(width: view.frame.width, height: 60)
     }
 }

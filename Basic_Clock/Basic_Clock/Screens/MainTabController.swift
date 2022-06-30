@@ -26,7 +26,7 @@ class MainTabController: UITabBarController {
         
         let timer = templateNavigationController(title: "타이머", unselectedImage: UIImage(systemName: "timer")!, selectedImage: UIImage(systemName: "timer")!, rootViewController: TimerController())
         
-        viewControllers = [wordTime, alarm, stopwatch, timer]
+        viewControllers = [alarm, wordTime, stopwatch, timer]
         
         tabBar.tintColor = .orange
         tabBar.unselectedItemTintColor = .gray

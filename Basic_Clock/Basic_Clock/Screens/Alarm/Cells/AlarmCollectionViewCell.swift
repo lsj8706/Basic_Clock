@@ -12,7 +12,7 @@ class AlarmCollectionViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = .blue
+        backgroundColor = .blue
     }
     
     required init?(coder: NSCoder) {
