@@ -10,10 +10,17 @@ import UIKit
 class HeaderView: UIView {
     
     //MARK: - UI
-    private lazy var editButton = UIButton().then {
+    private lazy var editButton = UIButton(type: .system).then {
         $0.setTitle("편집", for: .normal)
         $0.setTitleColor(.orange, for: .normal)
         $0.addTarget(self, action: #selector(editButtonDidTap(sender:)), for: .touchUpInside)
+    }
+
+    
+    let pageTitleLabel = UILabel().then {
+        $0.text = "알람"
+        $0.textColor = .white
+        $0.font = UIFont.systemFont(ofSize: 20, weight: .bold)
     }
 
     private lazy var addButton = UIButton().then {
@@ -30,6 +37,13 @@ class HeaderView: UIView {
             make.leading.equalToSuperview().offset(10)
         }
         
+        addSubview(pageTitleLabel)
+        pageTitleLabel.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.centerY.equalToSuperview()
+        }
+        pageTitleLabel.isHidden = true
+        
         addSubview(addButton)
         addButton.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
@@ -44,6 +58,6 @@ class HeaderView: UIView {
     
     //MARK: - Action
     @objc func editButtonDidTap(sender: UIButton) {
-        sender.setTitle("완료", for: .normal)
+        sender.currentTitle == "편집" ? sender.setTitle("완료", for: .normal) : sender.setTitle("편집", for: .normal)
     }
 }

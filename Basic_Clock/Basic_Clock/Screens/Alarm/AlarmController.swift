@@ -58,7 +58,14 @@ class AlarmController: UIViewController {
 
 //MARK: - UICollectionViewDelegate
 extension AlarmController: UICollectionViewDelegate {
-    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        print(scrollView.contentOffset.y)
+        if scrollView.contentOffset.y <= 0 {
+            headerView.pageTitleLabel.isHidden = true
+        } else {
+            headerView.pageTitleLabel.isHidden = false
+        }
+    }
 }
 
 //MARK: - UICollectionViewDataSource
@@ -86,7 +93,7 @@ extension AlarmController: UICollectionViewDataSource {
         if section == 0 {
             return 1
         } else {
-            return 2
+            return 10
         }
     }
     
