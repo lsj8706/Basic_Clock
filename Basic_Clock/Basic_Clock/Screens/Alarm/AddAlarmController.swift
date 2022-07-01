@@ -8,15 +8,13 @@
 import UIKit
 
 class AddAlarmController: UIViewController {
+    
     //MARK: - UI
-
-
-    private let headerView = UIView().then {
-        
+    private lazy var headerView = UIView().then {
         lazy var cancelButton = UIButton().then {
             $0.setTitle("취소", for: .normal)
             $0.setTitleColor(.orange, for: .normal)
-            $0.addTarget(self, action: #selector(cancelButtonDidTap(sender:)), for: .touchUpInside)
+            $0.addTarget(self, action: #selector(self.cancelButtonDidTap(sender:)), for: .touchUpInside)
         }
         
         let pageTitleLabel = UILabel().then {
@@ -28,7 +26,7 @@ class AddAlarmController: UIViewController {
         lazy var saveButton = UIButton().then {
             $0.setTitle("저장", for: .normal)
             $0.setTitleColor(.orange, for: .normal)
-            $0.addTarget(self, action: #selector(saveButtonDidTap(sender:)), for: .touchUpInside)
+            $0.addTarget(self, action: #selector(self.saveButtonDidTap(sender:)), for: .touchUpInside)
         }
         
         $0.addSubview(cancelButton)
@@ -50,6 +48,16 @@ class AddAlarmController: UIViewController {
         }
     }
     
+    private lazy var datePicker = UIDatePicker().then {
+        $0.datePickerMode = .time
+        $0.preferredDatePickerStyle = .wheels
+        $0.setValue(UIColor.white, forKeyPath: "textColor")
+        $0.timeZone = .autoupdatingCurrent
+        $0.addTarget(self, action: #selector(handleDatePickerDidScroll(sender:)), for: .valueChanged)
+    }
+    
+    
+    
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,6 +67,13 @@ class AddAlarmController: UIViewController {
         headerView.snp.makeConstraints { make in
             make.leading.top.trailing.equalTo(view.safeAreaLayoutGuide)
             make.height.equalTo(50)
+        }
+        
+        self.view.addSubview(datePicker)
+        datePicker.snp.makeConstraints { make in
+            make.top.equalTo(headerView.snp.bottom).offset(10)
+            make.centerX.equalToSuperview()
+            make.height.equalTo(250)
         }
     }
     
@@ -72,4 +87,9 @@ class AddAlarmController: UIViewController {
     @objc func saveButtonDidTap(sender: UIButton) {
         print("save btn tapped")
     }
+    
+    @objc func handleDatePickerDidScroll(sender: UIDatePicker) {
+        print("ccc")
+    }
+
 }

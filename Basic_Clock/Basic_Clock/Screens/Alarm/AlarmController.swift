@@ -10,6 +10,8 @@ import Then
 import SnapKit
 
 class AlarmController: UIViewController {
+    //MARK: - Properties
+    var pageNameLabelHeight: Double = 40
     //MARK: - UI
     private let headerView = HeaderView()
     private let alarmCollectionView: UICollectionView = {
@@ -60,7 +62,7 @@ class AlarmController: UIViewController {
 //MARK: - UICollectionViewDelegate
 extension AlarmController: UICollectionViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if scrollView.contentOffset.y <= 0 {
+        if scrollView.contentOffset.y <= pageNameLabelHeight{
             headerView.pageTitleLabel.isHidden = true
         } else {
             headerView.pageTitleLabel.isHidden = false
@@ -74,8 +76,13 @@ extension AlarmController: UICollectionViewDataSource {
         if kind == UICollectionView.elementKindSectionHeader {
             guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: AlarmSectionHeaderCollectionReusableView.identifier, for: indexPath) as? AlarmSectionHeaderCollectionReusableView else { return UICollectionReusableView() }
             
+            
             if indexPath.section == 1 {
                 header.type = .normalAlarm
+            }
+            
+            if header.pageNameLabel.frame.height != 0 {
+                pageNameLabelHeight = header.pageNameLabel.frame.height
             }
             
             return header
@@ -101,7 +108,7 @@ extension AlarmController: UICollectionViewDataSource {
         
         if indexPath.section == 0 {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SleepAlarmCollectionViewCell.identifier, for: indexPath) as? SleepAlarmCollectionViewCell else { return UICollectionViewCell() }
-            
+                        
             return cell
         } else {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AlarmCollectionViewCell.identifier, for: indexPath) as? AlarmCollectionViewCell else { return UICollectionViewCell() }
@@ -134,8 +141,6 @@ extension AlarmController: UICollectionViewDelegateFlowLayout {
 extension AlarmController: HeaderViewDelegate {
     func presentAddAlarmController(_ view: UIView) {
         let addAlarmController = AddAlarmController()
-        //addAlarmController.modalPresentationStyle = .fullScreen
-        //addAlarmController.modalTransitionStyle = .coverVertical
         self.present(addAlarmController, animated: true)
     }
 }

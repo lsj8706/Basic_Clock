@@ -23,7 +23,7 @@ class AlarmSectionHeaderCollectionReusableView: UICollectionReusableView {
         }
     }
     
-    private let pageNameLabel = UILabel().then {
+    let pageNameLabel = UILabel().then {
         $0.text = "알람"
         $0.font = UIFont.systemFont(ofSize: 36, weight: .bold)
         $0.textColor = .white
