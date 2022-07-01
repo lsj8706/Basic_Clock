@@ -7,7 +7,14 @@
 
 import UIKit
 
+protocol HeaderViewDelegate: AnyObject {
+    func presentAddAlarmController(_ view: UIView)
+}
+
 class HeaderView: UIView {
+    
+    //MARK: - Properties
+    weak var delegate: HeaderViewDelegate?
     
     //MARK: - UI
     private lazy var editButton = UIButton(type: .system).then {
@@ -15,7 +22,6 @@ class HeaderView: UIView {
         $0.setTitleColor(.orange, for: .normal)
         $0.addTarget(self, action: #selector(editButtonDidTap(sender:)), for: .touchUpInside)
     }
-
     
     let pageTitleLabel = UILabel().then {
         $0.text = "알람"
@@ -26,6 +32,7 @@ class HeaderView: UIView {
     private lazy var addButton = UIButton().then {
         $0.setImage(UIImage(systemName: "plus"), for: .normal)
         $0.tintColor = .orange
+        $0.addTarget(self, action: #selector(addButtonDidTap(sender:)), for: .touchUpInside)
     }
     
     //MARK: - Lifecycle
@@ -59,5 +66,9 @@ class HeaderView: UIView {
     //MARK: - Action
     @objc func editButtonDidTap(sender: UIButton) {
         sender.currentTitle == "편집" ? sender.setTitle("완료", for: .normal) : sender.setTitle("편집", for: .normal)
+    }
+    
+    @objc func addButtonDidTap(sender: UIButton) {
+        delegate?.presentAddAlarmController(self)
     }
 }

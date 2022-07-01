@@ -29,6 +29,7 @@ class AlarmController: UIViewController {
         configureCollectionView()
         
         self.view.addSubview(headerView)
+        headerView.delegate = self
         headerView.snp.makeConstraints { make in
             make.leading.top.trailing.equalTo(view.safeAreaLayoutGuide)
             make.height.equalTo(50)
@@ -59,7 +60,6 @@ class AlarmController: UIViewController {
 //MARK: - UICollectionViewDelegate
 extension AlarmController: UICollectionViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        print(scrollView.contentOffset.y)
         if scrollView.contentOffset.y <= 0 {
             headerView.pageTitleLabel.isHidden = true
         } else {
@@ -127,5 +127,15 @@ extension AlarmController: UICollectionViewDelegateFlowLayout {
             return CGSize(width: view.frame.width, height: 100)
         }
         return CGSize(width: view.frame.width, height: 60)
+    }
+}
+
+//MARK: - HeaderViewDelegate
+extension AlarmController: HeaderViewDelegate {
+    func presentAddAlarmController(_ view: UIView) {
+        let addAlarmController = AddAlarmController()
+        //addAlarmController.modalPresentationStyle = .fullScreen
+        //addAlarmController.modalTransitionStyle = .coverVertical
+        self.present(addAlarmController, animated: true)
     }
 }
