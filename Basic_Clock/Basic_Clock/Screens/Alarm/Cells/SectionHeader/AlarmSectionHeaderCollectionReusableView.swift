@@ -84,6 +84,7 @@ class AlarmSectionHeaderCollectionReusableView: UICollectionReusableView {
     
     //MARK: - Helpers
     private func configureUI() {
+        // .normalAlarm이라면 pageNameLabel과 sectionIconImageView 숨기기
         if type == .normalAlarm {
             pageNameLabel.snp.makeConstraints { make in
                 make.height.equalTo(0)

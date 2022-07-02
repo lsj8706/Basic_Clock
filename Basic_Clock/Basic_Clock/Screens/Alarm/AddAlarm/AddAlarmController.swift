@@ -53,15 +53,38 @@ class AddAlarmController: UIViewController {
         $0.preferredDatePickerStyle = .wheels
         $0.setValue(UIColor.white, forKeyPath: "textColor")
         $0.timeZone = .autoupdatingCurrent
+        $0.tintColor = .orange
         $0.addTarget(self, action: #selector(handleDatePickerDidScroll(sender:)), for: .valueChanged)
     }
     
+    private lazy var repeatView = UIView().then {
+        $0.backgroundColor = .darkGray
+        let tap = UITapGestureRecognizer(target: self, action: #selector(handleRepeatViewDidTap(sender:)))
+        $0.addGestureRecognizer(tap)
+    }
+    
+    private lazy var setupTableView = UITableView(frame: .zero, style: .insetGrouped).then {
+        $0.register(setupTableViewCell.self, forCellReuseIdentifier: setupTableViewCell.identifier)
+        $0.isScrollEnabled = false
+        $0.backgroundColor = UIColor(named: "myBackgroundColor")
+        $0.separatorColor = .darkGray
+    }
     
     
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        configureUI()
+        configureDelegate()
+    }
+    
+    //MARK: - Helpers
+    private func configureDelegate() {
+        setupTableView.delegate = self
+        setupTableView.dataSource = self
+    }
+    
+    private func configureUI() {
         view.backgroundColor = UIColor(named: "myBackgroundColor")
         self.view.addSubview(headerView)
         headerView.snp.makeConstraints { make in
@@ -75,9 +98,15 @@ class AddAlarmController: UIViewController {
             make.centerX.equalToSuperview()
             make.height.equalTo(250)
         }
+        
+        self.view.addSubview(setupTableView)
+        setupTableView.snp.makeConstraints { make in
+            make.top.equalTo(datePicker.snp.bottom).offset(10)
+            make.leading.trailing.equalTo(view.safeAreaLayoutGuide)
+            make.height.equalTo(300)
+        }
     }
     
-    //MARK: - Helpers
     
     //MARK: - Actions
     @objc func cancelButtonDidTap(sender: UIButton) {
@@ -89,7 +118,28 @@ class AddAlarmController: UIViewController {
     }
     
     @objc func handleDatePickerDidScroll(sender: UIDatePicker) {
-        print("ccc")
+        print("date picker did scroll")
     }
+    
+    @objc func handleRepeatViewDidTap(sender: UITapGestureRecognizer) {
+        print("repeat")
+    }
+}
 
+
+extension AddAlarmController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 4
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: setupTableViewCell.identifier, for: indexPath) as? setupTableViewCell else { return UITableViewCell() }
+        cell.backgroundColor = UIColor(named: "myDarkGray2")
+        cell.selectionStyle = .none
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 50
+    }
 }

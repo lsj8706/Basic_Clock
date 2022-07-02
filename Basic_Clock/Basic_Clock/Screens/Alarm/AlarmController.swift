@@ -12,8 +12,10 @@ import SnapKit
 class AlarmController: UIViewController {
     //MARK: - Properties
     var pageNameLabelHeight: Double = 40
+    
     //MARK: - UI
     private let headerView = HeaderView()
+    
     private let alarmCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
@@ -29,7 +31,11 @@ class AlarmController: UIViewController {
         super.viewDidLoad()
         configureDelegate()
         configureCollectionView()
-        
+        configureUI()
+    }
+    
+    //MARK: - Helpers
+    private func configureUI() {
         self.view.addSubview(headerView)
         headerView.delegate = self
         headerView.snp.makeConstraints { make in
@@ -44,7 +50,7 @@ class AlarmController: UIViewController {
         }
     }
     
-    //MARK: - Helpers
+    
     private func configureDelegate() {
         alarmCollectionView.delegate = self
         alarmCollectionView.dataSource = self
@@ -75,7 +81,6 @@ extension AlarmController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         if kind == UICollectionView.elementKindSectionHeader {
             guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: AlarmSectionHeaderCollectionReusableView.identifier, for: indexPath) as? AlarmSectionHeaderCollectionReusableView else { return UICollectionReusableView() }
-            
             
             if indexPath.section == 1 {
                 header.type = .normalAlarm
@@ -108,7 +113,7 @@ extension AlarmController: UICollectionViewDataSource {
         
         if indexPath.section == 0 {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SleepAlarmCollectionViewCell.identifier, for: indexPath) as? SleepAlarmCollectionViewCell else { return UICollectionViewCell() }
-                        
+            
             return cell
         } else {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AlarmCollectionViewCell.identifier, for: indexPath) as? AlarmCollectionViewCell else { return UICollectionViewCell() }

@@ -14,8 +14,10 @@
 		CE1EDF05286CAE070058EDE4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE1EDF03286CAE070058EDE4 /* LaunchScreen.storyboard */; };
 		CE1EDF0F286CB26C0058EDE4 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = CE1EDF0E286CB26C0058EDE4 /* SnapKit */; };
 		CE1EDF14286CB30A0058EDE4 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = CE1EDF13286CB30A0058EDE4 /* Then */; };
+		CE533AB128709B1400B4E14F /* setupTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE533AB028709B1400B4E14F /* setupTableViewCell.swift */; };
 		CE771DE1286DFAA2004C7BC6 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE771DE0286DFAA2004C7BC6 /* Extensions.swift */; };
 		CE771DE3286EC844004C7BC6 /* AddAlarmController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE771DE2286EC844004C7BC6 /* AddAlarmController.swift */; };
+		CE771DE5286F1985004C7BC6 /* EditAlarmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE771DE4286F1985004C7BC6 /* EditAlarmView.swift */; };
 		CE8800D0286CBF3D00A8C1E2 /* WorldTimeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8800CF286CBF3D00A8C1E2 /* WorldTimeController.swift */; };
 		CE8800D2286CBF9C00A8C1E2 /* AlarmController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8800D1286CBF9C00A8C1E2 /* AlarmController.swift */; };
 		CE8800D4286CBFBD00A8C1E2 /* StopwatchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8800D3286CBFBD00A8C1E2 /* StopwatchController.swift */; };
@@ -34,8 +36,10 @@
 		CE1EDF01286CAE070058EDE4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE1EDF04286CAE070058EDE4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE1EDF06286CAE070058EDE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CE533AB028709B1400B4E14F /* setupTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = setupTableViewCell.swift; sourceTree = "<group>"; };
 		CE771DE0286DFAA2004C7BC6 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		CE771DE2286EC844004C7BC6 /* AddAlarmController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAlarmController.swift; sourceTree = "<group>"; };
+		CE771DE4286F1985004C7BC6 /* EditAlarmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAlarmView.swift; sourceTree = "<group>"; };
 		CE8800CF286CBF3D00A8C1E2 /* WorldTimeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldTimeController.swift; sourceTree = "<group>"; };
 		CE8800D1286CBF9C00A8C1E2 /* AlarmController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmController.swift; sourceTree = "<group>"; };
 		CE8800D3286CBFBD00A8C1E2 /* StopwatchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopwatchController.swift; sourceTree = "<group>"; };
@@ -122,8 +126,8 @@
 			isa = PBXGroup;
 			children = (
 				CE8800DA286CDA0100A8C1E2 /* Cells */,
+				CE533AAE28709AF200B4E14F /* AddAlarm */,
 				CE8800D1286CBF9C00A8C1E2 /* AlarmController.swift */,
-				CE771DE2286EC844004C7BC6 /* AddAlarmController.swift */,
 			);
 			path = Alarm;
 			sourceTree = "<group>";
@@ -144,6 +148,23 @@
 			path = Timer;
 			sourceTree = "<group>";
 		};
+		CE533AAE28709AF200B4E14F /* AddAlarm */ = {
+			isa = PBXGroup;
+			children = (
+				CE533AAF28709AFE00B4E14F /* Cells */,
+				CE771DE2286EC844004C7BC6 /* AddAlarmController.swift */,
+			);
+			path = AddAlarm;
+			sourceTree = "<group>";
+		};
+		CE533AAF28709AFE00B4E14F /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				CE533AB028709B1400B4E14F /* setupTableViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		CE771DDF286DFA94004C7BC6 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -156,6 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				CE8800D8286CC74400A8C1E2 /* HeaderView.swift */,
+				CE771DE4286F1985004C7BC6 /* EditAlarmView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -258,6 +280,7 @@
 			files = (
 				CED4E043286D94CC00D82F18 /* AlarmSectionHeaderCollectionReusableView.swift in Sources */,
 				CE1EDEFD286CAE060058EDE4 /* MainTabController.swift in Sources */,
+				CE771DE5286F1985004C7BC6 /* EditAlarmView.swift in Sources */,
 				CE8800D2286CBF9C00A8C1E2 /* AlarmController.swift in Sources */,
 				CE1EDEF9286CAE060058EDE4 /* AppDelegate.swift in Sources */,
 				CE8800D0286CBF3D00A8C1E2 /* WorldTimeController.swift in Sources */,
@@ -268,6 +291,7 @@
 				CE771DE3286EC844004C7BC6 /* AddAlarmController.swift in Sources */,
 				CE8800DC286CDA2F00A8C1E2 /* SleepAlarmCollectionViewCell.swift in Sources */,
 				CE8800D4286CBFBD00A8C1E2 /* StopwatchController.swift in Sources */,
+				CE533AB128709B1400B4E14F /* setupTableViewCell.swift in Sources */,
 				CE8800D9286CC74400A8C1E2 /* HeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
