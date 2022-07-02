@@ -57,17 +57,13 @@ class AddAlarmController: UIViewController {
         $0.addTarget(self, action: #selector(handleDatePickerDidScroll(sender:)), for: .valueChanged)
     }
     
-    private lazy var repeatView = UIView().then {
-        $0.backgroundColor = .darkGray
-        let tap = UITapGestureRecognizer(target: self, action: #selector(handleRepeatViewDidTap(sender:)))
-        $0.addGestureRecognizer(tap)
-    }
-    
     private lazy var setupTableView = UITableView(frame: .zero, style: .insetGrouped).then {
         $0.register(setupTableViewCell.self, forCellReuseIdentifier: setupTableViewCell.identifier)
         $0.isScrollEnabled = false
         $0.backgroundColor = UIColor(named: "myBackgroundColor")
         $0.separatorColor = .darkGray
+        $0.contentInset = .zero
+        $0.contentInsetAdjustmentBehavior = .never
     }
     
     
@@ -101,9 +97,9 @@ class AddAlarmController: UIViewController {
         
         self.view.addSubview(setupTableView)
         setupTableView.snp.makeConstraints { make in
-            make.top.equalTo(datePicker.snp.bottom).offset(10)
+            make.top.equalTo(datePicker.snp.bottom)
             make.leading.trailing.equalTo(view.safeAreaLayoutGuide)
-            make.height.equalTo(300)
+            make.height.equalTo(200)
         }
     }
     
@@ -120,10 +116,6 @@ class AddAlarmController: UIViewController {
     @objc func handleDatePickerDidScroll(sender: UIDatePicker) {
         print("date picker did scroll")
     }
-    
-    @objc func handleRepeatViewDidTap(sender: UITapGestureRecognizer) {
-        print("repeat")
-    }
 }
 
 
@@ -136,10 +128,40 @@ extension AddAlarmController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: setupTableViewCell.identifier, for: indexPath) as? setupTableViewCell else { return UITableViewCell() }
         cell.backgroundColor = UIColor(named: "myDarkGray2")
         cell.selectionStyle = .none
+        switch indexPath.row {
+        case 0:
+            cell.setData(settingName: "반복", settingValueName: "안 함")
+        case 1:
+            cell.setData(settingName: "레이블", settingValueName: "알람")
+        case 2:
+            cell.setData(settingName: "사운드", settingValueName: "희망")
+        case 3:
+            cell.settingNameLabel.text = "다시 알림"
+            cell.changeCellToReplaceAlarmCell()
+        default:
+            break
+        }
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 50
+    }
+    
+    // 테이블 뷰 기본 상하단 여백 (기본 header, footer 없애기)
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        UIView()
+    }
+
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        UIView()
+    }
+
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        .leastNormalMagnitude
+    }
+
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        .leastNormalMagnitude
     }
 }
