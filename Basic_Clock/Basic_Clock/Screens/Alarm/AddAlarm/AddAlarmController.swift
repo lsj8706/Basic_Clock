@@ -114,7 +114,7 @@ class AddAlarmController: UIViewController {
     }
     
     @objc func handleDatePickerDidScroll(sender: UIDatePicker) {
-        print("date picker did scroll")
+        print(sender.date)
     }
 }
 
@@ -163,5 +163,9 @@ extension AddAlarmController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         .leastNormalMagnitude
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(indexPath.row)
     }
 }

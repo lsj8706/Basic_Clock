@@ -15,6 +15,7 @@
 		CE1EDF0F286CB26C0058EDE4 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = CE1EDF0E286CB26C0058EDE4 /* SnapKit */; };
 		CE1EDF14286CB30A0058EDE4 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = CE1EDF13286CB30A0058EDE4 /* Then */; };
 		CE533AB128709B1400B4E14F /* setupTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE533AB028709B1400B4E14F /* setupTableViewCell.swift */; };
+		CE533AB428715F1000B4E14F /* AlarmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE533AB328715F1000B4E14F /* AlarmModel.swift */; };
 		CE771DE1286DFAA2004C7BC6 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE771DE0286DFAA2004C7BC6 /* Extensions.swift */; };
 		CE771DE3286EC844004C7BC6 /* AddAlarmController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE771DE2286EC844004C7BC6 /* AddAlarmController.swift */; };
 		CE771DE5286F1985004C7BC6 /* EditAlarmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE771DE4286F1985004C7BC6 /* EditAlarmView.swift */; };
@@ -37,6 +38,7 @@
 		CE1EDF04286CAE070058EDE4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE1EDF06286CAE070058EDE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE533AB028709B1400B4E14F /* setupTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = setupTableViewCell.swift; sourceTree = "<group>"; };
+		CE533AB328715F1000B4E14F /* AlarmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmModel.swift; sourceTree = "<group>"; };
 		CE771DE0286DFAA2004C7BC6 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		CE771DE2286EC844004C7BC6 /* AddAlarmController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAlarmController.swift; sourceTree = "<group>"; };
 		CE771DE4286F1985004C7BC6 /* EditAlarmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAlarmView.swift; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 		CE1EDF17286CB3A10058EDE4 /* Alarm */ = {
 			isa = PBXGroup;
 			children = (
+				CE533AB228715F0100B4E14F /* Models */,
 				CE8800DA286CDA0100A8C1E2 /* Cells */,
 				CE533AAE28709AF200B4E14F /* AddAlarm */,
 				CE8800D1286CBF9C00A8C1E2 /* AlarmController.swift */,
@@ -163,6 +166,14 @@
 				CE533AB028709B1400B4E14F /* setupTableViewCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		CE533AB228715F0100B4E14F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CE533AB328715F1000B4E14F /* AlarmModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		CE771DDF286DFA94004C7BC6 /* Utils */ = {
@@ -287,6 +298,7 @@
 				CE8800D6286CBFD000A8C1E2 /* TimerController.swift in Sources */,
 				CE1EDEFB286CAE060058EDE4 /* SceneDelegate.swift in Sources */,
 				CE771DE1286DFAA2004C7BC6 /* Extensions.swift in Sources */,
+				CE533AB428715F1000B4E14F /* AlarmModel.swift in Sources */,
 				CE8800DE286CDCCE00A8C1E2 /* AlarmCollectionViewCell.swift in Sources */,
 				CE771DE3286EC844004C7BC6 /* AddAlarmController.swift in Sources */,
 				CE8800DC286CDA2F00A8C1E2 /* SleepAlarmCollectionViewCell.swift in Sources */,
