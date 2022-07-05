@@ -9,7 +9,12 @@ import UIKit
 
 class AddAlarmController: UIViewController {
     //MARK: - Properties
-    var model: AlarmModel = AlarmModel(time: .now, repeatDay: [], label: "알람" , sound: "희망", isRepeatAlarm: false)
+    var model: AlarmModel = AlarmModel(time: .now, repeatDay: [], label: "알람" , sound: "희망", isRepeatAlarm: false) {
+        didSet {
+            print(model)
+            setupTableView.reloadData()
+        }
+    }
     
     //MARK: - UI
     private lazy var headerView = UIView().then {
@@ -61,6 +66,7 @@ class AddAlarmController: UIViewController {
     
     private lazy var setupTableView = UITableView(frame: .zero, style: .insetGrouped).then {
         $0.register(SetupTableViewCell.self, forCellReuseIdentifier: SetupTableViewCell.identifier)
+        $0.register(SetupRepeatAlarmTableViewCell.self, forCellReuseIdentifier: SetupRepeatAlarmTableViewCell.identifier)
         $0.isScrollEnabled = false
         $0.backgroundColor = UIColor(named: "myBackgroundColor")
         $0.separatorColor = .darkGray
@@ -128,23 +134,36 @@ extension AddAlarmController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: SetupTableViewCell.identifier, for: indexPath) as? SetupTableViewCell else { return UITableViewCell() }
-        cell.backgroundColor = UIColor(named: "myDarkGray2")
-        cell.selectionStyle = .none
-        switch indexPath.row {
-        case 0:
-            cell.setData(settingName: "반복", settingValueName: "안 함")
-        case 1:
-            cell.setData(settingName: "레이블", settingValueName: "알람")
-        case 2:
-            cell.setData(settingName: "사운드", settingValueName: "희망")
-        case 3:
-            cell.settingNameLabel.text = "다시 알림"
-            cell.changeCellToReplaceAlarmCell()
-        default:
-            break
+        if indexPath.row < 3 {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: SetupTableViewCell.identifier, for: indexPath) as? SetupTableViewCell else { return UITableViewCell() }
+            cell.backgroundColor = UIColor(named: "myDarkGray2")
+            cell.selectionStyle = .none
+            switch indexPath.row {
+            case 0:
+                var settingValueName = "안 함"
+                if !model.repeatDay.isEmpty {
+                    settingValueName = ""
+                    for char in model.repeatDay.map({$0.first!}) {
+                        settingValueName.append(contentsOf: "\(char) ")
+                    }
+                }
+                
+                cell.setData(settingName: "반복", settingValueName: settingValueName.trimmingCharacters(in: .whitespaces))
+            case 1:
+                cell.setData(settingName: "레이블", settingValueName: model.label)
+            case 2:
+                cell.setData(settingName: "사운드", settingValueName: model.sound)
+            default:
+                break
+            }
+            return cell
+        } else {
+            guard let switchCell = tableView.dequeueReusableCell(withIdentifier: SetupRepeatAlarmTableViewCell.identifier, for: indexPath) as? SetupRepeatAlarmTableViewCell else { return UITableViewCell() }
+            switchCell.backgroundColor = UIColor(named: "myDarkGray2")
+            switchCell.selectionStyle = .none
+            switchCell.repeatAlarmSwitch.isOn = model.isRepeatAlarm
+            return switchCell
         }
-        return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -171,9 +190,10 @@ extension AddAlarmController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.row {
         case 0:
-            let RepeatDaySelectVC = RepeatDaySelectViewController()
-            RepeatDaySelectVC.delegate = self
-            self.navigationController?.pushViewController(RepeatDaySelectVC, animated: true)
+            let repeatDaySelectVC = RepeatDaySelectViewController()
+            repeatDaySelectVC.delegate = self
+            repeatDaySelectVC.selectedDays = model.repeatDay
+            self.navigationController?.pushViewController(repeatDaySelectVC, animated: true)
         default:
             break
         }
@@ -182,6 +202,7 @@ extension AddAlarmController: UITableViewDelegate, UITableViewDataSource {
 
 extension AddAlarmController: RepeatDaySelectViewControllerDelegate {
     func didSelectDays(selectedDays: [String]) {
-        return 
+        model.repeatDay = selectedDays
+        setupTableView.reloadData()
     }
 }

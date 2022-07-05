@@ -29,10 +29,6 @@ class SetupTableViewCell: UITableViewCell {
         $0.tintColor = .gray
     }
     
-    private let repeatAlarmSwitch = UISwitch().then {
-        $0.setColor(offTint: UIColor(named: "myDarkGray")!)
-    }
-    
     //MARK: - Lifecycle
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -67,17 +63,5 @@ class SetupTableViewCell: UITableViewCell {
     func setData(settingName: String, settingValueName: String) {
         settingNameLabel.text = settingName
         currentSettingValueLabel.text = settingValueName
-    }
-    
-    func changeCellToReplaceAlarmCell() {
-        rightChevronImageView.snp.removeConstraints()
-        rightChevronImageView.isHidden = true
-        currentSettingValueLabel.snp.removeConstraints()
-        currentSettingValueLabel.isHidden = true
-        addSubview(repeatAlarmSwitch)
-        repeatAlarmSwitch.snp.makeConstraints { make in
-            make.trailing.equalToSuperview().inset(18)
-            make.centerY.equalToSuperview()
-        }
     }
 }

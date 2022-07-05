@@ -28,6 +28,7 @@
 		CE8800DC286CDA2F00A8C1E2 /* SleepAlarmCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8800DB286CDA2F00A8C1E2 /* SleepAlarmCollectionViewCell.swift */; };
 		CE8800DE286CDCCE00A8C1E2 /* AlarmCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8800DD286CDCCE00A8C1E2 /* AlarmCollectionViewCell.swift */; };
 		CEA0ECA428740FBB0084B9CD /* RepeatDaySelectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA0ECA328740FBB0084B9CD /* RepeatDaySelectTableViewCell.swift */; };
+		CEA0ECA628742D830084B9CD /* SetupRepeatAlarmTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA0ECA528742D830084B9CD /* SetupRepeatAlarmTableViewCell.swift */; };
 		CED4E043286D94CC00D82F18 /* AlarmSectionHeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED4E042286D94CC00D82F18 /* AlarmSectionHeaderCollectionReusableView.swift */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +54,7 @@
 		CE8800DB286CDA2F00A8C1E2 /* SleepAlarmCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepAlarmCollectionViewCell.swift; sourceTree = "<group>"; };
 		CE8800DD286CDCCE00A8C1E2 /* AlarmCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmCollectionViewCell.swift; sourceTree = "<group>"; };
 		CEA0ECA328740FBB0084B9CD /* RepeatDaySelectTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepeatDaySelectTableViewCell.swift; sourceTree = "<group>"; };
+		CEA0ECA528742D830084B9CD /* SetupRepeatAlarmTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupRepeatAlarmTableViewCell.swift; sourceTree = "<group>"; };
 		CED4E042286D94CC00D82F18 /* AlarmSectionHeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmSectionHeaderCollectionReusableView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -169,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				CE533AB028709B1400B4E14F /* SetupTableViewCell.swift */,
+				CEA0ECA528742D830084B9CD /* SetupRepeatAlarmTableViewCell.swift */,
 				CEA0ECA328740FBB0084B9CD /* RepeatDaySelectTableViewCell.swift */,
 			);
 			path = Cells;
@@ -308,6 +311,7 @@
 				CE771DE5286F1985004C7BC6 /* EditAlarmView.swift in Sources */,
 				CE8800D2286CBF9C00A8C1E2 /* AlarmController.swift in Sources */,
 				CE1EDEF9286CAE060058EDE4 /* AppDelegate.swift in Sources */,
+				CEA0ECA628742D830084B9CD /* SetupRepeatAlarmTableViewCell.swift in Sources */,
 				CE8800D0286CBF3D00A8C1E2 /* WorldTimeController.swift in Sources */,
 				CE8800D6286CBFD000A8C1E2 /* TimerController.swift in Sources */,
 				CE1EDEFB286CAE060058EDE4 /* SceneDelegate.swift in Sources */,

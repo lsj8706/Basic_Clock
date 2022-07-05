@@ -18,6 +18,8 @@ class RepeatDaySelectViewController: UIViewController {
     
     private let days: [String] = ["일요일마다", "월요일마다", "화요일마다", "수요일마다", "목요일마다", "금요일마다", "토요일마다"]
     
+    var selectedDays: [String] = []
+    
     //MARK: - UI
     private lazy var headerView = UIView().then {
         lazy var cancelButton = UIButton().then {
@@ -89,9 +91,11 @@ class RepeatDaySelectViewController: UIViewController {
 
     //MARK: - Actions
     @objc func cancelButtonDidTap(sender: UIButton) {
-        guard let selectedIndex = dayTableView.indexPathsForSelectedRows else { return }
-        let selectedDays = selectedIndex.map({$0[1]}).sorted().map({days[$0]})
-        
+        guard let selectedIndex = dayTableView.indexPathsForSelectedRows else {
+            self.navigationController?.popViewController(animated: true)
+            return
+        }
+        selectedDays = selectedIndex.map({$0[1]}).sorted().map({days[$0]})
         delegate?.didSelectDays(selectedDays: selectedDays)
         self.navigationController?.popViewController(animated: true)
     }
@@ -110,7 +114,10 @@ extension RepeatDaySelectViewController: UITableViewDelegate, UITableViewDataSou
         cell.selectionStyle = .none
         cell.tintColor = .orange
         cell.settingNameLabel.text = days[indexPath.row]
-        
+        if selectedDays.contains(days[indexPath.row]) {
+            tableView.selectRow(at: indexPath, animated: true, scrollPosition: .none)
+            cell.accessoryType = .checkmark
+        }
         return cell
     }
     
@@ -133,5 +140,16 @@ extension RepeatDaySelectViewController: UITableViewDelegate, UITableViewDataSou
 
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         .leastNormalMagnitude
+    }
+    
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        if let cell = tableView.cellForRow(at: indexPath) {
+            cell.accessoryType = .none
+        }
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let cell = tableView.cellForRow(at: indexPath) {
+            cell.accessoryType = .checkmark
+        }
     }
 }
