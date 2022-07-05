@@ -146,6 +146,7 @@ extension AlarmController: UICollectionViewDelegateFlowLayout {
 extension AlarmController: HeaderViewDelegate {
     func presentAddAlarmController(_ view: UIView) {
         let addAlarmController = AddAlarmController()
-        self.present(addAlarmController, animated: true)
+        let nav = UINavigationController(rootViewController: addAlarmController)
+        self.present(nav, animated: true)
     }
 }

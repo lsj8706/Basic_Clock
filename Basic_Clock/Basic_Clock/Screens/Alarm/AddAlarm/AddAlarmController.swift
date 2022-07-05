@@ -8,6 +8,8 @@
 import UIKit
 
 class AddAlarmController: UIViewController {
+    //MARK: - Properties
+    var model: AlarmModel = AlarmModel(time: .now, repeatDay: [], label: "알람" , sound: "희망", isRepeatAlarm: false)
     
     //MARK: - UI
     private lazy var headerView = UIView().then {
@@ -58,7 +60,7 @@ class AddAlarmController: UIViewController {
     }
     
     private lazy var setupTableView = UITableView(frame: .zero, style: .insetGrouped).then {
-        $0.register(setupTableViewCell.self, forCellReuseIdentifier: setupTableViewCell.identifier)
+        $0.register(SetupTableViewCell.self, forCellReuseIdentifier: SetupTableViewCell.identifier)
         $0.isScrollEnabled = false
         $0.backgroundColor = UIColor(named: "myBackgroundColor")
         $0.separatorColor = .darkGray
@@ -82,6 +84,7 @@ class AddAlarmController: UIViewController {
     
     private func configureUI() {
         view.backgroundColor = UIColor(named: "myBackgroundColor")
+        navigationController?.navigationBar.isHidden = true
         self.view.addSubview(headerView)
         headerView.snp.makeConstraints { make in
             make.leading.top.trailing.equalTo(view.safeAreaLayoutGuide)
@@ -125,7 +128,7 @@ extension AddAlarmController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: setupTableViewCell.identifier, for: indexPath) as? setupTableViewCell else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: SetupTableViewCell.identifier, for: indexPath) as? SetupTableViewCell else { return UITableViewCell() }
         cell.backgroundColor = UIColor(named: "myDarkGray2")
         cell.selectionStyle = .none
         switch indexPath.row {
@@ -166,6 +169,19 @@ extension AddAlarmController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath.row)
+        switch indexPath.row {
+        case 0:
+            let RepeatDaySelectVC = RepeatDaySelectViewController()
+            RepeatDaySelectVC.delegate = self
+            self.navigationController?.pushViewController(RepeatDaySelectVC, animated: true)
+        default:
+            break
+        }
+    }
+}
+
+extension AddAlarmController: RepeatDaySelectViewControllerDelegate {
+    func didSelectDays(selectedDays: [String]) {
+        return 
     }
 }

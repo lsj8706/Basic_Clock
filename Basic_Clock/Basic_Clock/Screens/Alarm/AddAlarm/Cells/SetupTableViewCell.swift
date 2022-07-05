@@ -7,7 +7,7 @@
 
 import UIKit
 
-class setupTableViewCell: UITableViewCell {
+class SetupTableViewCell: UITableViewCell {
 
     static let identifier = "setupTableViewCell"
     
@@ -80,5 +80,4 @@ class setupTableViewCell: UITableViewCell {
             make.centerY.equalToSuperview()
         }
     }
-
 }
